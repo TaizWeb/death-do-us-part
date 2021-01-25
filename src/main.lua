@@ -3,6 +3,7 @@ require("lib/heartbeat")
 require("player")
 require("tiles")
 require("animation")
+require("actors")
 
 function love.load()
 	windowWidth = love.graphics.getWidth()
@@ -12,6 +13,8 @@ function love.load()
 	love.filesystem.setIdentity("deathgame")
 	Heartbeat.createPlayer(Player, -100, -100)
 	Heartbeat.tilesList = {Ground}
+	Heartbeat.entitiesList = {Button}
+	Heartbeat.itemsList = {Button}
 end
 
 Editor = {}
@@ -20,6 +23,9 @@ Editor.isActive = false
 function love.keypressed(key, scancode, isrepeat)
 	if (key == "e" and not Heartbeat.editor.commandMode) then
 		Heartbeat.editor.isActive = not Heartbeat.editor.isActive
+	end
+	if (Heartbeat.editor.isActive) then
+		Heartbeat.editor.handleInput(key)
 	end
 	if (key == "q") then
 		Animation.newAnimation(Player.suicide, 30)
