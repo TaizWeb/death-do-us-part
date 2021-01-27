@@ -1,5 +1,5 @@
-Button = {
-	id = "button",
+DoubleButton = {
+	id = "doublebutton",
 	texture = love.graphics.newImage("assets/button-redo1.png"),
 	textures = {
 		love.graphics.newImage("assets/button-redo1.png"),
@@ -11,7 +11,7 @@ Button = {
 	scaleY = 3
 }
 
-function Button.checkValidity()
+function DoubleButton.checkValidity()
 	for i=1,#Heartbeat.entities do
 		if (Heartbeat.entities[i].id == "button" and not Heartbeat.entities[i].isActive) then
 			return false
@@ -20,22 +20,22 @@ function Button.checkValidity()
 	return true
 end
 
-function Button.behaivor(this)
+function DoubleButton.behaivor(this)
 	if (Heartbeat.checkEntityCollision(Heartbeat.player, this) or Heartbeat.checkEntityCollision(Partner, this)) then
 		this.isActive = true
-		this.texture = Button.textures[2]
-		Button.checkValidity()
+		this.texture = DoubleButton.textures[2]
+		DoubleButton.checkValidity()
 	else
 		this.isActive = false
-		this.texture = Button.textures[1]
+		this.texture = DoubleButton.textures[1]
 	end
 end
 
-function Button.draw(this)
+function DoubleButton.draw(this)
 	-- Initializing
 	if (this.isActive == nil) then
 		this.isActive = false
 	end
 
-	love.graphics.draw(this.texture, Camera.convert("x", this.x), Camera.convert("y", this.y), this.rotation, Button.scaleX, Button.scaleY, this.offsetX, this.offsetY)
+	love.graphics.draw(this.texture, Camera.convert("x", this.x), Camera.convert("y", this.y), this.rotation, DoubleButton.scaleX, DoubleButton.scaleY, this.offsetX, this.offsetY)
 end
