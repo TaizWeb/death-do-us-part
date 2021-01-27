@@ -95,6 +95,19 @@ function Player.draw(this)
 	love.graphics.draw(this.texture, Camera.convert("x", this.x), Camera.convert("y", this.y), this.rotation, Player.scaleX, Player.scaleY, this.offsetX, this.offsetY)
 	-- Draw the partner
 	love.graphics.draw(Partner.texture, Camera.convert("x", Partner.x), Camera.convert("y", Partner.y), this.rotation, Partner.scaleX, Partner.scaleY, Partner.offsetX, Partner.offsetY)
+
+	-- Draw items
+	Player.drawItems(this)
+end
+
+function Player.drawItems(this)
+	if (Player.hasKey) then
+		love.graphics.draw(Key.texture, Camera.convert("x", this.x), Camera.convert("y", this.y), 0, 1, 1, 0, 0)
+	end
+	
+	if (Partner.hasKey) then
+		love.graphics.draw(Key.texture, Camera.convert("x", Partner.x), Camera.convert("y", Partner.y), 0, 1, 1, 0, 0)
+	end
 end
 
 function Player.setFrame()
