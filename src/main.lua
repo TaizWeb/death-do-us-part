@@ -4,6 +4,8 @@ require("player")
 require("tiles")
 require("animation")
 require("actors")
+require("key")
+require("button")
 
 function love.load()
 	windowWidth = love.graphics.getWidth()
@@ -12,9 +14,9 @@ function love.load()
 	love.keyboard.setKeyRepeat(true)
 	love.filesystem.setIdentity("deathgame")
 	Heartbeat.createPlayer(Player, -100, -100)
-	Heartbeat.tilesList = {Ground}
-	Heartbeat.entitiesList = {Button}
-	Heartbeat.itemsList = {Button}
+	Heartbeat.tilesList = {Ground, Bridge, Jail}
+	Heartbeat.entitiesList = {Button, DoubleButton}
+	Heartbeat.itemsList = {Key}
 end
 
 Editor = {}
@@ -56,6 +58,16 @@ function love.update(dt)
 	elseif (love.keyboard.isDown("down")) then
 		Heartbeat.player.dy = 5
 		Heartbeat.player.direction = "down"
+	end
+
+	-- Hold-down functionality for the editor
+	if (Heartbeat.editor.isActive) then
+		if (love.mouse.isDown(1) and Heartbeat.editor.mode == "tile") then
+			Heartbeat.editor.handleInput(1)
+		end
+		if (love.mouse.isDown(2)) then
+			Heartbeat.editor.handleInput(2)
+		end
 	end
 end
 
