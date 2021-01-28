@@ -215,6 +215,7 @@ function Heartbeat.newTile(object, x, y)
 			scaleY = object.scaleY,
 			offsetX = object.offsetX,
 			offsetY = object.offsetY,
+			rotation = object.rotation,
 			isSolid = object.isSolid,
 			isPlatform = object.isPlatform,
 			isSlope = object.isSlope
@@ -521,7 +522,7 @@ function Heartbeat.editor.drawEditor()
 		if (objectPreview.texture ~= nil) then
 			Heartbeat.draw(objectPreview)
 		else
-			love.graphics.rectangle("fill", objectPreview.x, objectPreview.y, objectPreview.width, objectPreview.height)
+			love.graphics.rectangle("fill", Camera.convert("x", objectPreview.x), Camera.convert("y", objectPreview.y), objectPreview.width, objectPreview.height)
 		end
 	end
 end
