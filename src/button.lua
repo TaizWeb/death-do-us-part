@@ -15,7 +15,6 @@ function Button.behaivor(this)
 	if (Heartbeat.checkEntityCollision(Heartbeat.player, this) or Heartbeat.checkEntityCollision(Partner, this)) then
 		this.isActive = true
 		this.texture = Button.textures[2]
-		Button.checkValidity()
 	else
 		this.isActive = false
 		this.texture = Button.textures[1]
