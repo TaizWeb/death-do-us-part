@@ -28,6 +28,46 @@ Jail = {
 	isSolid = true
 }
 
+Lever = {
+	id = "lever",
+	texture = love.graphics.newImage("assets/lever.png"),
+	width = 25,
+	height = 25,
+	scaleX = 25/16,
+	scaleY = 25/16,
+	isSolid = true
+}
+
+Lock = {
+	id = "lock",
+	texture = love.graphics.newImage("assets/lock.png"),
+	width = 25,
+	height = 25,
+	scaleX = 25/16,
+	scaleY = 25/16,
+	isSolid = true
+}
+
+Bluewall = {
+	id = "wallBlue",
+	texture = love.graphics.newImage("assets/bluewall.png"),
+	width = 25,
+	height = 25,
+	scaleX = 25/16,
+	scaleY = 25/16,
+	isSolid = false
+}
+
+Redwall = {
+	id = "wallRed",
+	texture = love.graphics.newImage("assets/redwall.png"),
+	width = 25,
+	height = 25,
+	scaleX = 25/16,
+	scaleY = 25/16,
+	isSolid = true
+}
+
 -- ok forgive me for this, but heartbeat didn't have tile rotation and I didn't want to change the entire engine's level formats for a jam so I committed this sin
 WallRight = {
 	id = "wallRight",
@@ -58,7 +98,9 @@ WallUp = {
 	scaleX = 50/32,
 	scaleY = -50/32,
 	isSolid = true,
-	rotation = math.pi/2
+	offsetX = 32,
+	offsetY = 32,
+	rotation = -math.pi/2
 }
 
 WallDown = {
