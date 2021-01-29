@@ -804,6 +804,7 @@ function Heartbeat.editor.readLevel(levelName)
 			scaleY = tile.scaleY,
 			offsetX = tile.offsetX,
 			offsetY = tile.offsetY,
+			rotation = tile.rotation,
 			isSolid = tile.isSolid,
 			isPlatform = tile.isPlatform,
 			isSlope = tile.isSlope
