@@ -46,6 +46,7 @@ WallLeft= {
 	height = 50,
 	scaleX = -50/32,
 	scaleY = 50/32,
+	offsetX = 32,
 	isSolid = true
 }
 
@@ -67,6 +68,7 @@ WallDown = {
 	height = 50,
 	scaleX = 50/32,
 	scaleY = 50/32,
+	offsetY = 32,
 	isSolid = true,
 	rotation = math.pi/2
 }
@@ -89,6 +91,7 @@ CornerSW = {
 	scaleX = 50/32,
 	scaleY = 50/32,
 	isSolid = true,
+	offsetY = 32,
 	rotation = math.pi/2
 }
 
@@ -100,6 +103,8 @@ CornerNW = {
 	scaleX = 50/32,
 	scaleY = 50/32,
 	isSolid = true,
+	offsetY = 32,
+	offsetX = 32,
 	rotation = math.pi
 }
 
@@ -111,6 +116,7 @@ CornerNE = {
 	scaleX = 50/32,
 	scaleY = 50/32,
 	isSolid = true,
+	offsetX = 32,
 	rotation = -math.pi/2
 }
 
