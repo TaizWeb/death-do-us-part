@@ -173,6 +173,33 @@ function Player.swap()
 	initPlayer()
 	Partner = tmp
 end
+
+function Player.activate()
+	for i=1,#Heartbeat.tiles do
+		if (Heartbeat.tiles[i].id == "lever" and Player.compareDistance(Heartbeat.tiles[i])) then
+			-- Replace all reds with blues and vice versa
+			for i=1,#Heartbeat.tiles do
+				if (Heartbeat.tiles[i].id == "wallRed") then
+					Heartbeat.tiles[i].id = "wallBlue"
+					Heartbeat.tiles[i].isSolid = false
+					Heartbeat.tiles[i].texture = Bluewall.texture
+				elseif (Heartbeat.tiles[i].id == "wallBlue") then
+					Heartbeat.tiles[i].id = "wallRed"
+					Heartbeat.tiles[i].isSolid = true
+					Heartbeat.tiles[i].texture = Redwall.texture
+				end
+			end
+		end
+		if (Heartbeat.tiles[i].id == "lock" and Player.hasKey and Player.compareDistance(Heartbeat.tiles[i])) then
+			Heartbeat.removeTile(Heartbeat.tiles[i])
+			Player.hasKey = false
+		end
+	end
+end
+
+function Player.compareDistance(object)
+	return ((math.abs(object.x - Heartbeat.player.x) < 50) and math.abs(object.y - Heartbeat.player.y) < 50)
+end
 end
 
 Player = Gal
