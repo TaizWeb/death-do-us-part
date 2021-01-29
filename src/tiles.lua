@@ -71,13 +71,46 @@ WallDown = {
 	rotation = math.pi/2
 }
 
-Corner = {
-	id = "corner",
+CornerSE = {
+	id = "cornerSE",
 	texture = love.graphics.newImage("assets/corner.png"),
 	width = 50,
 	height = 50,
 	scaleX = 50/32,
 	scaleY = 50/32,
 	isSolid = true
+}
+
+CornerSW = {
+	id = "cornerSW",
+	texture = love.graphics.newImage("assets/corner.png"),
+	width = 50,
+	height = 50,
+	scaleX = 50/32,
+	scaleY = 50/32,
+	isSolid = true,
+	rotation = math.pi/2
+}
+
+CornerNW = {
+	id = "cornerNW",
+	texture = love.graphics.newImage("assets/corner.png"),
+	width = 50,
+	height = 50,
+	scaleX = 50/32,
+	scaleY = 50/32,
+	isSolid = true,
+	rotation = math.pi
+}
+
+CornerNE = {
+	id = "cornerNE",
+	texture = love.graphics.newImage("assets/corner.png"),
+	width = 50,
+	height = 50,
+	scaleX = 50/32,
+	scaleY = 50/32,
+	isSolid = true,
+	rotation = -math.pi/2
 }
 

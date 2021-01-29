@@ -14,7 +14,7 @@ function love.load()
 	love.keyboard.setKeyRepeat(true)
 	love.filesystem.setIdentity("deathgame")
 	Heartbeat.createPlayer(Player, -100, -100)
-	Heartbeat.tilesList = {Ground, WallUp, WallLeft, WallRight, WallDown, Corner, Bridge, Jail}
+	Heartbeat.tilesList = {Ground, WallUp, WallLeft, WallRight, WallDown, CornerSE, CornerSW, CornerNW, CornerNE, Bridge, Jail}
 	Heartbeat.entitiesList = {Button, DoubleButton}
 	Heartbeat.itemsList = {Key}
 end
