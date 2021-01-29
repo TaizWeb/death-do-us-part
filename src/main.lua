@@ -14,13 +14,14 @@ function love.load()
 	love.keyboard.setKeyRepeat(true)
 	love.filesystem.setIdentity("deathgame")
 	Heartbeat.createPlayer(Player, -100, -100)
-	Heartbeat.tilesList = {Ground, WallUp, WallLeft, WallRight, WallDown, CornerSE, CornerSW, CornerNW, CornerNE, Bridge, Jail}
+	Heartbeat.tilesList = {Ground, WallUp, WallLeft, WallRight, WallDown, CornerSE, CornerSW, CornerNW, CornerNE, Bridge, Jail, Lever, Lock, Bluewall, Redwall}
 	Heartbeat.entitiesList = {Button, DoubleButton}
 	Heartbeat.itemsList = {Key}
 end
 
 Editor = {}
 Editor.isActive = false
+redActive = true
 
 function love.keypressed(key, scancode, isrepeat)
 	if (key == "e" and not Heartbeat.editor.commandMode) then
@@ -34,6 +35,9 @@ function love.keypressed(key, scancode, isrepeat)
 	end
 	if (key == "z") then
 		Player.swap()
+	end
+	if (key == "x") then
+		Player.activate()
 	end
 end
 
